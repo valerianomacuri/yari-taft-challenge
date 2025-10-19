@@ -8,6 +8,10 @@ dist/
 build/
 .tsbuildinfo
 
+# PostgresSQL
+postgres_data/
+pgadmin_data/
+
 # Logs
 logs/
 *.log

@@ -1,12 +1,16 @@
-import { IsString, IsEmail, IsOptional, MinLength } from 'class-validator';
+// src/user/dto/update-user.dto.ts
+import { IsEmail, IsOptional, MinLength } from 'class-validator';
 
 export class UpdateUserDto {
-  @IsString()
   @IsOptional()
-  @MinLength(3)
-  public name?: string;
+  @IsEmail({})
+  email?: string;
 
-  @IsEmail()
   @IsOptional()
-  public email?: string;
+  @MinLength(2)
+  name?: string;
+
+  @IsOptional()
+  @MinLength(6)
+  password?: string;
 }

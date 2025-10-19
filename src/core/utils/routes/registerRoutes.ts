@@ -11,11 +11,11 @@ export const registerRoutes = (...routes: Routes[]) => {
       'No routes were provided to registerRoutes. At least one route must be passed.',
     );
 
-  const router = Router();
+  const mainRouter = Router();
 
   routes.forEach(({ path, router }) => {
-    router.use(path, router);
+    mainRouter.use(path, router);
   });
 
-  return router;
+  return mainRouter;
 };

@@ -12,6 +12,7 @@ export const envConfig = {
   DB_USER: get('DB_USER').required().asString(),
   DB_PASSWORD: get('DB_PASSWORD').required().asString(),
   DB_NAME: get('DB_NAME').required().asString(),
+  POKEMON_API_URL: get('POKEMON_API_URL').required().asString(),
 };
 
 export default envConfig;

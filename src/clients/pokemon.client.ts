@@ -1,5 +1,6 @@
 // src/clients/pokemon.client.ts
 import axios from 'axios';
+import envVars from '../core/envs';
 
 export interface PokemonBasicInfo {
   id: number;
@@ -27,7 +28,7 @@ export class PokemonClient {
 
   constructor() {
     this.api = axios.create({
-      baseURL: 'https://pokeapi.co/api/v2',
+      baseURL: envVars.POKEMON_API_URL,
       timeout: 5000,
       headers: {
         'Content-Type': 'application/json',

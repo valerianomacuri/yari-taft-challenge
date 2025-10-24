@@ -1,3 +1,4 @@
+// src/user/user.entity.ts
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -25,8 +26,14 @@ export class User {
   @MinLength(6)
   password!: string;
 
-  @Column({ default: true })
+  @Column({ default: true, name: 'is_active' })
   isActive!: boolean;
+
+  @Column({ nullable: true, name: 'favorite_pokemon' })
+  favoritePokemon?: string;
+
+  @Column('simple-array', { nullable: true, name: 'pokemon_team' })
+  pokemonTeam?: string[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt!: Date;

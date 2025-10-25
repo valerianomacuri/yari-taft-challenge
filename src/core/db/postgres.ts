@@ -4,11 +4,11 @@ import envVars from '../envs';
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'postgres',
-  host: envVars.DB_HOST || 'localhost',
-  port: envVars.DB_PORT || 5432,
-  username: envVars.DB_USER || 'postgres',
-  password: envVars.DB_PASSWORD || 'postgres',
-  database: envVars.DB_NAME || 'myapp_db',
+  host: envVars.DB_HOST,
+  port: envVars.DB_PORT,
+  username: envVars.DB_USER,
+  password: envVars.DB_PASSWORD,
+  database: envVars.DB_NAME,
   entities: [User],
   migrations: ['src/database/migrations/*.ts'],
   synchronize: envVars.NODE_ENV === 'development',

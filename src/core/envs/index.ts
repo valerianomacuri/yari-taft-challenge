@@ -11,7 +11,7 @@ import { get } from 'env-var';
 
 export const envConfig = {
   NODE_ENV: get('NODE_ENV').asEnum(['development', 'production', 'test']),
-  PORT: get('PORT').asPortNumber(),
+  PORT: get('PORT').required().asPortNumber(),
   DB_HOST: get('DB_HOST').required().asString(),
   DB_PORT: get('DB_PORT').required().asPortNumber(),
   DB_USER: get('DB_USER').required().asString(),

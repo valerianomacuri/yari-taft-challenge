@@ -14,7 +14,7 @@ export class Server {
 
   constructor() {
     this.app = express();
-    this.port = envVars.PORT || 3000;
+    this.port = envVars.PORT;
     this.initialize(); // Inicializar automáticamente
   }
 

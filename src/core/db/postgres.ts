@@ -2,6 +2,9 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 import { User } from '../../user/user.entity';
 import envVars from '../envs';
 
+const isCompiled = __filename.endsWith('.js');
+const isTest = envVars.NODE_ENV === 'test';
+
 export const dataSourceOptions: DataSourceOptions = {
   type: 'postgres',
   host: envVars.DB_HOST,
@@ -10,8 +13,8 @@ export const dataSourceOptions: DataSourceOptions = {
   password: envVars.DB_PASSWORD,
   database: envVars.DB_NAME,
   entities: [User],
-  migrations: ['src/database/migrations/*.ts'],
-  synchronize: envVars.NODE_ENV === 'development',
+  migrations: isCompiled ? ['dist/migrations/*.js'] : ['src/migrations/*.ts'],
+  synchronize: isTest,
   logging: envVars.NODE_ENV === 'development',
 };
 

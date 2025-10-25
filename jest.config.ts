@@ -8,9 +8,6 @@ const config: Config = {
   testMatch: ['**/*.test.ts', '**/*.spec.ts'],
   clearMocks: true,
   verbose: true,
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-  },
   modulePathIgnorePatterns: ['dist'],
 };
 

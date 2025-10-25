@@ -3,13 +3,13 @@ import { Express } from 'express';
 import { DataSource } from 'typeorm';
 import { pokemonClient } from '../../src/clients/pokemon.client';
 import { PostgresDataSource } from '../../src/core/db/postgres';
+import { Server } from '../../src/core/server';
+import { ApiClient } from '../helpers/api-client';
 import {
   clearDatabase,
   setupTestDatabase,
   teardownTestDatabase,
 } from '../helpers/test-database';
-import { Server } from '../../src/core/server/index';
-import { ApiClient } from '../helpers/api-client';
 
 // Mock del cliente de Pokémon
 jest.mock('../../src/clients/pokemon.client');

@@ -11,6 +11,7 @@ build/
 # PostgresSQL
 postgres_data/
 pgadmin_data/
+postgres_test_data/
 
 # Logs
 logs/
@@ -26,6 +27,7 @@ lerna-debug.log*
 .env
 .env.*
 !.env.example
+!.env.test
 
 # Test coverage
 coverage/

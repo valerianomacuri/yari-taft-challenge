@@ -667,7 +667,11 @@ describe('User Routes - Integration Tests', () => {
 
       expect(response.body).toMatchObject({
         success: false,
-        message: 'Pokemon team cannot have more than 6 pokemon',
+        errors: [
+          {
+            constraints: ['Pokemon team cannot have more than 6 pokemon'],
+          },
+        ],
       });
     });
 

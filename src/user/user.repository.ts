@@ -226,7 +226,7 @@ export class UserRepository extends Repository<User> {
 
     const withTeam = await this.createQueryBuilder('user')
       .where('user.pokemon_team IS NOT NULL')
-      .andWhere('array_length(user.pokemon_team, 1) > 0')
+      .andWhere("array_length(string_to_array(user.pokemon_team, ','), 1) > 0")
       .getCount();
 
     return {

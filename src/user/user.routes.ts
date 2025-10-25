@@ -222,6 +222,36 @@ router.get('/', userController.findAll);
 
 /**
  * @swagger
+ * /users/search:
+ *   get:
+ *     summary: Search users by name
+ *     tags: [Users]
+ *     parameters:
+ *       - in: query
+ *         name: query
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Search results
+ */
+router.get('/search', userController.searchByName);
+
+/**
+ * @swagger
+ * /users/stats:
+ *   get:
+ *     summary: Get user statistics
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Statistics retrieved successfully
+ */
+router.get('/stats', userController.getStats);
+
+/**
+ * @swagger
  * /users/{id}:
  *   get:
  *     summary: Get user by ID
@@ -712,36 +742,6 @@ router.put(
  *               $ref: '#/components/schemas/Error'
  */
 router.post('/:id/random-pokemon', userController.assignRandomPokemon);
-
-/**
- * @swagger
- * /users/stats:
- *   get:
- *     summary: Get user statistics
- *     tags: [Users]
- *     responses:
- *       200:
- *         description: Statistics retrieved successfully
- */
-router.get('/stats', userController.getStats);
-
-/**
- * @swagger
- * /users/search:
- *   get:
- *     summary: Search users by name
- *     tags: [Users]
- *     parameters:
- *       - in: query
- *         name: query
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Search results
- */
-router.get('/search', userController.searchByName);
 
 /**
  * @swagger

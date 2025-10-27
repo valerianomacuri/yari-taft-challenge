@@ -37,14 +37,14 @@ describe('User Routes - Integration Tests', () => {
     }
   }, 30000);
 
-  afterAll(async () => {
-    await teardownTestDatabase(dataSource);
-  }, 10000);
-
-  beforeEach(async () => {
+  afterEach(async () => {
     await clearDatabase(dataSource);
     jest.clearAllMocks();
   });
+
+  afterAll(async () => {
+    await teardownTestDatabase(dataSource);
+  }, 10000);
 
   // ==================== USER CRUD TESTS ====================
 

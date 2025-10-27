@@ -1,0 +1,35 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Git
+.git
+.gitignore
+
+# Docker files (PERO NO Dockerfile)
+.dockerignore
+docker-compose*.yml
+
+# Build outputs
+dist
+build
+coverage
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# CI/CD
+.github
+.gitlab-ci.yml

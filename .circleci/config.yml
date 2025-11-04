@@ -29,9 +29,9 @@ jobs:
       - run:
           command: npm run test:cov
           name: Run tests with coverage
-      - run:
-          name: Send coverage to Coveralls
-          command: npm run coveralls
+      # - run:
+      #     name: Send coverage to Coveralls
+      #     command: npm run coveralls
       # - run:
       #     command: npm run build
       #     name: Install and Make
@@ -39,10 +39,8 @@ jobs:
           root: ~/project
           paths:
             - .
-      - coveralls/upload
-      #     parallel: true
-      #     flag_name: Test 1
-      #     verbose: true
+      - coveralls/upload:
+          path: coverage/lcov.info
 workflows:
   build_test_deploy: # this can be any name you choose
     jobs:

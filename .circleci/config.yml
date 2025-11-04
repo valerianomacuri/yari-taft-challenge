@@ -6,7 +6,7 @@ orbs:
 jobs:
   build_and_test: # this can be any name you choose
     docker:
-      - image: cimg/node:22
+      - image: cimg/node:20.18
         environment:
           DB_HOST: 0.0.0.0
           DB_PORT: 5432

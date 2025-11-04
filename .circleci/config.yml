@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  # coveralls: coveralls/coveralls@2.2.5
+  coveralls: coveralls/coveralls@2.2.5
 
 jobs:
   build_and_test: # this can be any name you choose
@@ -14,7 +14,7 @@ jobs:
           DB_PASSWORD: test_password
           DB_NAME: test_db
           POKEMON_API_URL: https://pokeapi.co/api/v2
-          # COVERALLS_REPO_TOKEN: gLskLgZ58OYgHYPem2MLSnox65zICVe8t
+          COVERALLS_REPO_TOKEN: q57b9rjKzi4VGbA1p3goR2u08ebW5syEk
       # Service container image
       - image: cimg/postgres:15.5
         environment:
@@ -27,9 +27,11 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          # command: COVERALLS_REPO_TOKEN=gLskLgZ58OYgHYPem2MLSnox65zICVe8t npm run test:cov
-          command: npm run test:integration
-          name: Run tests
+          command: npm run test:cov
+          name: Run tests with coverage
+      - run:
+          name: Send coverage to Coveralls
+          command: npm run coveralls
       # - run:
       #     command: npm run build
       #     name: Install and Make
@@ -37,7 +39,7 @@ jobs:
           root: ~/project
           paths:
             - .
-      # - coveralls/upload:
+      - coveralls/upload
       #     parallel: true
       #     flag_name: Test 1
       #     verbose: true

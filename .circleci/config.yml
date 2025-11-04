@@ -39,8 +39,8 @@ jobs:
           root: ~/project
           paths:
             - .
-      - coveralls/upload:
-          path: coverage/lcov.info
+      - coveralls/upload
+
 workflows:
   build_test_deploy: # this can be any name you choose
     jobs:

@@ -17,7 +17,7 @@
     "migration:show": "npm run typeorm -- migration:show -d src/data-source.ts",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test:cov": "jest --coverage --config jest.config.ts --runInBand --detectOpenHandles --forceExit",
     "test:integration": "jest --config jest.config.ts --runInBand --detectOpenHandles --forceExit"
   },
   "keywords": [],

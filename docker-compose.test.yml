@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.test
     command: >
-      sh -c "npm run docker:test:integration"
+      sh -c "npm run test:integration"
     restart: "no"
     environment:
       - NODE_ENV=test

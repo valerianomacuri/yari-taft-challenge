@@ -32,14 +32,14 @@ jobs:
       # - run:
       #     name: Send coverage to Coveralls
       #     command: npm run coveralls
-      # - run:
-      #     command: npm run build
-      #     name: Install and Make
+      - coveralls/upload
+      - run:
+          command: npm run build
+          name: Install and Make
       - persist_to_workspace:
           root: ~/project
           paths:
             - .
-      - coveralls/upload
 
 workflows:
   build_test_deploy: # this can be any name you choose
